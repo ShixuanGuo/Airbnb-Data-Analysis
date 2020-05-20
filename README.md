@@ -2,7 +2,7 @@
 
 In this project, I performed statistical analysis and regression analysis using the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) listings and reviews data for Los Angeles, to give a deeper understanding of data patterns and trends in Los Angeles rental market.
 
-Files used in the project:
+Files used in the project:(download from : [Inside Airbnb](http://insideairbnb.com/get-the-data.html))
 * listings.csv
 * calendar.csv
 * reviews.csv
@@ -14,6 +14,9 @@ Files used in the project:
 Packages used in the project:
 * NumPy
 * Pandas
+* nltk
+* string
+* pandasql
 * matplotlib
 * Scikit-learn  
 
