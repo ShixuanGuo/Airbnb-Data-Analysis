@@ -1,25 +1,37 @@
 # Airbnb-Data-Analysis
 
-In this project, I performed statistical analysis and regression analysis using the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) listings and reviews data for Los Angeles, to give a deeper understanding of data patterns and trends in Los Angeles rental market.
+1. Project Introduction
 
-Files used in the project:(download from : [Inside Airbnb](http://insideairbnb.com/get-the-data.html))
-* listings.csv
-* calendar.csv
-* reviews.csv
+    In this project, I performed statistical analysis and regression analysis using the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) listings and reviews data for Los Angeles, to give a deeper understanding of data patterns and trends in Los Angeles rental market.
 
-**listings.csv** contains all historical and active listings in Los Angeles including descriptions of each listing and host, price, number of reviews, review scores, etc.   
-**calendar.csv** contains details of calendar data including listing availability and price  
-**reviews.csv** contains all reviews for each listing  
+    **Files** used in the project:(download from : [Inside Airbnb](http://insideairbnb.com/get-the-data.html))
+    * listings.csv
+    * calendar.csv
+    * reviews.csv
 
-Packages used in the project:
-* NumPy
-* Pandas
-* nltk
-* string
-* pandasql
-* matplotlib
-* Scikit-learn  
+    **listings.csv** contains all historical and active listings in Los Angeles including descriptions of each listing and host, price, number of reviews, review scores, etc.   
+    **calendar.csv** contains details of calendar data including listing availability and price  
+    **reviews.csv** contains all reviews for each listing  
 
+    **Packages** used in the project:
+    * NumPy
+    * Pandas
+    * nltk
+    * string
+    * datetime
+    * pandasql
+    * matplotlib
+    * Scikit-learn  
+      
+    **A quick glance at the data**:
+    -	There are 45k unique listings in LA in total. 
+    -	26k unique hosts in LA. On average, each host has 12 listings. The number of listings each host has is highly variant (standard deviation=242.144). The maximum and minimum number of listings per host is 29584 and 1.
+    -	1509564 of reviews have been written by guests
+    -	The average price of listing in LA in the first quarter of 2020 is $254.8. The average price of a listing in the first quarter of 2020 ranging from $10 to $25000 per night.
+
+
+2.   
+  
 Summary of insights:  
 
 1. Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.
