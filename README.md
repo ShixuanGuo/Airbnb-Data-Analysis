@@ -4,7 +4,7 @@
 
     In this project, I performed statistical analysis and regression analysis using the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) listings and reviews data for Los Angeles, to give a deeper understanding of data patterns and trends in Los Angeles rental market.
 
-    **Files** used in the project:(download from : [Inside Airbnb](http://insideairbnb.com/get-the-data.html))
+    1) **Files** used in the project:(download from : [Inside Airbnb](http://insideairbnb.com/get-the-data.html))
     * listings.csv
     * calendar.csv
     * reviews.csv
@@ -13,7 +13,7 @@
     **calendar.csv** contains details of calendar data including listing availability and price  
     **reviews.csv** contains all reviews for each listing  
 
-    **Packages** used in the project:
+    2) **Packages** used in the project:
     * NumPy
     * Pandas
     * nltk
@@ -23,15 +23,26 @@
     * matplotlib
     * Scikit-learn  
       
-    **A quick glance at the data**:
+    3) **A quick glance at the data**:
     -	There are 45k unique listings in LA in total. 
     -	26k unique hosts in LA. On average, each host has 12 listings. The number of listings each host has is highly variant (standard deviation=242.144). The maximum and minimum number of listings per host is 29584 and 1.
     -	1509564 of reviews have been written by guests
     -	The average price of listing in LA in the first quarter of 2020 is $254.8. The average price of a listing in the first quarter of 2020 ranging from $10 to $25000 per night.
 
 
-2.   
-  
+2. Analysis of Data Quality and Preprocessing  
+    1) Key features extraction and data cleaning  
+    * **price** (listings, calendar): string format, ‘$100’ with ‘,’ separator;  transformed into float values
+    * **date** (reviews, calendar): string format, transformed into date format, ‘mm-dd-yyyy’
+    * **location** (listings): ‘zipcode’, ‘latitude’, ‘longitude’, etc
+    * **rating** (listings): several columns including ‘review_scores_location’, ‘review_scores_cleanliness’ and 'review_scores_rating'
+    * **host** (listings): several columns including ‘host_id’, ‘host_is_superhost’,
+    * **comment** (reviews): string format, in multiple languages; sliced reviews that were in English and normalized text to remove common stop words and phrases that do not significantly contribute to the meaning of the review.
+
+    We extracted only key columns in the listing dataset.  
+    2) Missing values  
+    
+
 Summary of insights:  
 
 1. Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.
