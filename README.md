@@ -39,7 +39,8 @@
     * **host** (listings): several columns including ‘host_id’, ‘host_is_superhost’,
     * **comment** (reviews): string format, in multiple languages; sliced reviews that were in English and normalized text to remove common stop words and phrases that do not significantly contribute to the meaning of the review.
 
-    We extracted only key columns in the listing dataset.  
+    We extracted only key columns in the listing dataset. 
+    
     2) Missing values  
     The data had null values. We dropped the rows and columns containing more than 50% missing values and filled other missing values with 0.
     
@@ -61,14 +62,16 @@
         Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.  
         * Duration  
         We analyzed the relationship between duration and average price. This answer will help us to figure out the host behavior. For example, we will know whether the host is considered their Airbnb house as a commerical house to generate rent revenue or as a residential house. Based on our result, we know that most of the houses are under the normal range of 150-250. There are around 10 neighbourhoods that have a higher average durations with values greater than 250, which may indicates that the people in these neighbourhoods have a higher tendency to consider the house as a commercial house.  
+  
+    3) **Host Data Analysis**  
+        * What makes someone a superhost?  
+        Super host policy is designed as an incentive program that is a win-win for both the host, Airbnb, and their customers. Super host have more listings than non-super host on average.  
+        * Popular host verification types  
+        phone, email, reviews, government_id and offline_government_id  
 
+    4) **User Review Analysis**  
+        * Top Words  
+        Top frequently occurred words were ‘great’, ‘stay’, ‘clean’, ‘location’, ‘nice’, ‘host’, ‘comfortable’, which shows the features of the listings customers care about most:  environment, location and cleanliness.  
+        * Review Sentiment  
+        There is a small correlation (around 0.193) between positive words in comments with review score values, but there should be other factors that attribute more than positive words. Also, according on the visualization we created, we know that counting purely positive words would not reflect the hotel’s review score values, because two graphs does not have a similar trend. We might need to analyze more factors to finalize our model to answer this question.  
 
-
-
-Summary of insights:  
-
-1. Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.
-
-2. We analyzed the relationship between duration and average price. This answer will help us to figure out the host behavior. For example, we will know whether the host is considered their Airbnb house as a commerical house to generate rent revenue or as a residential house. Based on our result, we know that most of the houses are under the normal range of 150-250. There are around 10 neighbourhoods that have a higher average durations with values greater than 250, which may indicates that the people in these neighbourhoods have a higher tendency to consider the house as a commercial house.
-
-3. There is a small correlation (around 0.193) between positive words in comments with review score values, but there should be other factors that attribute more than positive words. Also, according on the visualization we created, we know that counting purely positive words would not reflect the hotel’s review score values, because two graphs does not have a similar trend. We might need to analyze more factors to finalize our model to answer this question.
