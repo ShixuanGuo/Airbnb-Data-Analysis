@@ -9,7 +9,7 @@
 
 # 5 active zipcode with the highest average listing price and more than 30 listing are 90210, 90077, 93063, 90265, 90069. Their average listing price are 1963.557367, 1909.066130, 1567.562500, 1559.605010, 998.113153 respectively. The number of active listings are 278, 74, 2, 329, 423 and the number of hosts are 173, 48, 1, 221, 305. 
 
-# In[11]:
+# In[1]:
 
 
 df_8a=df_cal.loc[(df_cal.date>='2020-01-01') & (df_cal.date<='2020-02-01') &                 (df_cal.available=='t'), :]
@@ -22,7 +22,7 @@ df_8d.head()
 
 # Five zipcodes that have at least 30 listings and have the largest absolute difference between the average prices on weekends versus the average prices on weekdays are 91001, 91105, 93063, 90210, 90305
 
-# In[12]:
+# In[2]:
 
 
 df_9a=df_cal.loc[(df_cal.date>=dt.date(2020,1,1)) & (df_cal.date<=dt.date(2020,4,1)) &                 (df_cal.available=='t'), :]
@@ -39,17 +39,11 @@ df_9f["max_abs_dif"]=df_9f["price_x"]-df_9f["price_y"]
 df_9f.sort_values(by=["max_abs_dif"],ascending=False).head()
 
 
-# In[ ]:
-
-
-
-
-
 # ## 3.2 Price and D&S
 
 # 1) Price of listing
 
-# In[123]:
+# In[3]:
 
 
 # Analysis of the average price of a listing in Los Angles
@@ -57,14 +51,14 @@ df_6=df_cal.groupby(by=['listing_id'])['price'].mean().agg([np.max,np.min,np.mea
 round(df_6,4)
 
 
-# In[124]:
+# In[4]:
 
 
 df_6b=df_cal.groupby(by=['date'])['price'].mean()
 df_6b=pd.DataFrame(data=df_6b, columns=['price']).reset_index()
 
 
-# In[134]:
+# In[5]:
 
 
 fig,ax=plt.subplots(figsize=(7,5))
@@ -75,7 +69,7 @@ plt.xticks(rotation=70)
 plt.show()
 
 
-# In[48]:
+# In[6]:
 
 
 # Analysis of the average price of a listing in Los Angles from 01/01/2020 to 03/01/2020 (inclusive)
@@ -88,14 +82,14 @@ round(df_6,4)
 # 2) The number of reviews  
 # The number of reviews made has increased a lot.
 
-# In[9]:
+# In[7]:
 
 
 df_6c=df_review.groupby(by=['date'])['id'].nunique()
 df_6c=pd.DataFrame(data=df_6c, columns=['id']).reset_index()
 
 
-# In[12]:
+# In[8]:
 
 
 fig,ax=plt.subplots(figsize=(7,5))
@@ -106,14 +100,14 @@ plt.xticks(rotation=70)
 plt.show()
 
 
-# In[24]:
+# In[9]:
 
 
 df_6c2=df_review.loc[df_review.date>=dt.date(2015,1,1), :].groupby(by=['date'])['id'].nunique()
 df_6c2=pd.DataFrame(data=df_6c2, columns=['id']).reset_index()
 
 
-# In[26]:
+# In[10]:
 
 
 fig,ax=plt.subplots(figsize=(7,5))
@@ -127,21 +121,21 @@ plt.show()
 # 3) Changes of number of listing  
 # Number of listing did not change.
 
-# In[138]:
+# In[11]:
 
 
 df_6d=df_cal.groupby(by=['date'])['listing_id'].nunique().agg([np.max,np.min,np.mean,np.std])
 df_6d
 
 
-# In[18]:
+# In[12]:
 
 
 df_6e=df_review.groupby(by=['date'])['listing_id'].nunique()
 df_6e.agg([np.max,np.min,np.mean,np.std])
 
 
-# In[19]:
+# In[13]:
 
 
 df_6e=pd.DataFrame(data=df_6e, columns=['listing_id']).reset_index()
@@ -163,7 +157,7 @@ plt.show()
 # The average and standard deviation of the daily total capacity is 47091.648, 4921.138.  
 # The average and standard deviation of the daily price per bed is 124.060, 5.634.
 
-# In[13]:
+# In[14]:
 
 
 ava_df_cal=df_cal.loc[(df_cal.date>=date(2020,1,1)) & (df_cal.date<date(2020,4,1))&            (df_cal.available=='t'), ["listing_id", "date", "price"]]
@@ -178,7 +172,7 @@ def getmoney(price):
 df_10a['price']=df_10a.price.apply(getmoney)
 
 
-# In[14]:
+# In[15]:
 
 
 df_10b=df_10a.groupby(by='date').agg({'beds':np.sum, 'price': np.sum})
@@ -186,7 +180,7 @@ df_10b.reset_index(inplace=True)
 df_10b.beds.mean(),df_10b.beds.std()
 
 
-# In[15]:
+# In[16]:
 
 
 df_10b['price_pre_bed']=df_10b.apply(lambda x: x['price']/x['beds'], axis=1)
@@ -196,7 +190,7 @@ df_10b.price_pre_bed.mean(), df_10b.price_pre_bed.std()
 # The daily occupancy trend from 2019-09-01 to 2020-09-01 (one year):  
 # Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.
 
-# In[16]:
+# In[17]:
 
 
 #create a new database with target date and convert available data into numerical data
@@ -205,7 +199,7 @@ df_cal1=df_cal.loc[(df_cal.date>="2019-09-01") & (df_cal.date<="2020-09-01"),   
 df_cal1['available_num']=df_cal1.available.apply(lambda x: 1 if x=='t' else 0)
 
 
-# In[17]:
+# In[18]:
 
 
 #calculate occupancy
@@ -225,10 +219,8 @@ ax0.set(title = "Trend of Occupancy", xlabel="Date", ylabel="Occupancy each day"
 # Definition: The duration is the number of nights booked per year of a listing.  
 # Most of the houses are under the normal range of 150-250. There are around 10 neighbourhoods that have a higher average durations with values greater than 250, which may indicates that the people in these neighbourhoods have a higher tendency to consider the house as a commercial house.
 
-# In[22]:
+# In[19]:
 
-
-# Your code to answer Question 3
 
 import numpy as np
 df_q3a=df_cal.loc[(df_cal.date>="2019-09-01") & (df_cal.date<="2020-09-01")&            (df_cal.available=='t'), ["listing_id", "available","price"]]
@@ -238,7 +230,7 @@ df_q3b=sqldf("SELECT listing_id, COUNT(available) AS Duration, AVG(price) AS Avg
 df_q3b.head()
 
 
-# In[23]:
+# In[20]:
 
 
 df_q3c=df_q3b.merge(df_list[['id','neighbourhood']], how='left', left_on='listing_id', right_on='id')
@@ -246,7 +238,7 @@ df_q3d=sqldf("SELECT neighbourhood, AVG(Duration) AS avg_Duration, AVG(Avg_Price
 df_q3e=sqldf("SELECT neighbourhood, COUNT(DISTINCT id) AS total_list, AVG(Avg_Price) AS Avg_Price_N              FROM df_q3c GROUP BY neighbourhood ORDER BY total_list DESC")
 
 
-# In[24]:
+# In[21]:
 
 
 # plot the result
@@ -262,7 +254,7 @@ ax3_0.set(title = "Listing Characters in Neighborhood", xlabel="Average Duration
 
 # For super host, the average number of listings is 7.359 with a standard deviation of 20.867. For non-super host, the average number of listings is 6.795 with a standard deviation of 14.348.
 
-# In[15]:
+# In[22]:
 
 
 df_3=df_list.groupby(by=['host_is_superhost'])['calculated_host_listings_count'].agg([np.mean,np.std])
@@ -275,7 +267,7 @@ df_3
 # There are 22 unique types of host veriftication in LA rental market.  
 # The top 5 popular types are phone, email, reviews, government_id and offline_government_id
 
-# In[45]:
+# In[23]:
 
 
 for i in range(len(df_list)):
@@ -285,7 +277,7 @@ for i in range(len(df_list)):
         print(name)
 
 
-# In[46]:
+# In[24]:
 
 
 #unique types of verification and the total number of hosts verify that type
@@ -305,13 +297,13 @@ len(d)
 d
 
 
-# In[47]:
+# In[25]:
 
 
 host_verification=pd.DataFrame.from_dict(d, orient='index',columns=['Number'])
 
 
-# In[48]:
+# In[26]:
 
 
 #popular verification types and the percent of hosts verify that type
@@ -322,7 +314,7 @@ for name in d.keys():
 #sorted_d = sorted(d.items(), key=operator.itemgetter(1),reverse=True)
 
 
-# In[49]:
+# In[27]:
 
 
 host_verification['Frequency']=d.values()
@@ -333,13 +325,13 @@ host_verification.sort_values(by=['Number'],ascending=False)
 
 # #### Top words
 
-# In[52]:
+# In[28]:
 
 
 df_review['date'].agg([np.max,np.min])
 
 
-# In[61]:
+# In[29]:
 
 
 #before convert date into date format
@@ -368,7 +360,7 @@ def gettopword(date, df_review):
     return wordcount_s
 
 
-# In[ ]:
+# In[30]:
 
 
 #top words from 2016-09-14 to 2019-09-14
@@ -376,21 +368,21 @@ wordcount=gettopword(df_review)
 wordcount
 
 
-# In[8]:
+# In[31]:
 
 
 wordcount1=gettopword(['2016-01-01','2016-01-31'], df_review)
 wordcount1
 
 
-# In[9]:
+# In[32]:
 
 
 wordcount2=gettopword(['2017-03-01','2017-03-31'], df_review)
 wordcount2
 
 
-# In[10]:
+# In[33]:
 
 
 wordcount3=gettopword(['2018-04-01','2018-04-31'], df_review)
@@ -401,7 +393,7 @@ wordcount3
 
 # We analyzed scores and review sentiment in order to find the 'best' host with high score and positive feedback from reviews.
 
-# In[27]:
+# In[34]:
 
 
 # convert the database into a dictionary that include positive and negative words
@@ -422,7 +414,7 @@ df_q4a = df_q4a.set_index('Entry').squeeze()
 df_q4a = df_q4a.to_dict()
 
 
-# In[28]:
+# In[35]:
 
 
 # create a clean comment list
@@ -447,7 +439,7 @@ def score(s, dic=df_q4a):
     return poscnt, negcnt, len(words)
 
 
-# In[29]:
+# In[36]:
 
 
 # using the purely positive score and rank the top 5 host
@@ -464,7 +456,7 @@ df_q4e=df_q4e.reset_index()
 df_q4f=df_q4e.head(5)
 
 
-# In[30]:
+# In[37]:
 
 
 # develop a graph to illustrate the top 5 host ID with the most purely positive words
@@ -476,7 +468,7 @@ ax0.set(xlabel = "Number of Positive Words",ylabel="Host ID")
 ax0.set_xlim([3000,4500])
 
 
-# In[31]:
+# In[38]:
 
 
 df_q5a=df_list.merge(df_q4e,how = "left", left_on = "id", right_on="listing_id").                     loc[:,['listing_id','review_scores_rating','review_scores_value','neighbourhood','sum']]
@@ -492,13 +484,13 @@ df_q5h=df_q5f.merge(df_q5g,how = "inner", left_on = "neighbourhood", right_on="n
 df_q5h.head()
 
 
-# In[32]:
+# In[39]:
 
 
 df_q5h[['Rank1','Rank2']].corr()
 
 
-# In[33]:
+# In[40]:
 
 
 fig, (ax0,ax1)=plt.subplots(nrows=2,ncols=1, figsize = (7,10),sharey=True)
