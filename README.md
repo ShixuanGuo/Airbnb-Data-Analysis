@@ -57,7 +57,7 @@ plt.show()
 df_2=df_2.to_frame().reset_index().sort_values(['calculated_host_listings_count'])
 df_2['calculated_host_listings_count'].value_counts()
 ```
-![Number of listings per host](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Number%20of%20listings%20per%20host.png)
+![Number of listings per host](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Number%20of%20listings%20per%20host.png)  
 * Most hosts have 1 listings (#:19872, above 2/3 of total hosts). On average, each host has 12 listings. The number of listings each host has is highly variant (standard deviation=242.144). Several hosts who have extremely large number of listings might be 'private real estate agency'.
 * There are 45053 unique listings in LA.
 
@@ -115,27 +115,27 @@ for index, row in df_review.iterrows():
 1) **Spatial Data Analysis**    
     Analysis the pattern of prices and ratings across different locations in LA:  
     * Zipcode  
+    ![Zipcode1](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/zipcode1.png)  
     Expensive listings concentrate in areas with *zipcodes* of 90210, 90077, 93063, 90265, 90069.  
-    ![Zipcode1](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/zipcode1.png)
+    ![Zipcode2](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/zipcode2.png)  
     Is it expensive to travel on weekend? The highest average price difference is $300. The prices of listings vary most from weekdays to weekends in the areas with zipcodes of 91001, 91105, 93063, 90210, 90305. The result indicates that these areas are popular travel or vocation spots.  
-    ![Zipcode2](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/zipcode2.png)
 
 2) **Price and D&S Analysis**  
     * Average listing price    
-    ![Trend of price](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20price.png)
+    ![Trend of price](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20price.png)  
     The number of listing did not change in the most recent year, while the price has increased. So the price can indicate the changes of demand.  
     * Number of reviews  
-    ![Trend of demand](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20demand.png)
-    ![Trend of demand annually](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20demand%20annually.png)
+    ![Trend of demand](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20demand.png)  
+    ![Trend of demand annually](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20demand%20annually.png)  
     From year 2009, Airbnb demand has continuously increasd. After year 2015, the demand has increased rapidly. We can see the peak and drop in each year: The demand is lowest in January and increases until October, when it begins to falls until the end of the year. This could possibly be due to the holiday season kicking in, with people celebrating Thanksgiving and Christmas at home with their family, leading to a slump in tourism and hence the demand for tourist lodging.  
     * Daily occupancy  
-    ![Daily occupancy](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Daily%20occupancy.png)
-    ![Trend of occupancy](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20occupancy.png)
+    ![Daily occupancy](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Daily%20occupancy.png)  
+    ![Trend of occupancy](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Trend%20of%20occupancy.png)  
     Daily average occupancy percentage varied a lot. From Sep 2019 to Sep 2020, the highest daily average occupancy percentage was on Nov 2019. It also indicates the changes of demand.  
     Price reflects the demands of the market. By sharing the same x-axis, which is date, we can know that the occupancy keeps increasing from the beginning of Sep 2019 to the mid of Dec 2019, which could be a potential reason for Airbnb's host to increase the price. After Christmas and new year celebration, the demand of house decreases rapidly which simultaneously leads to a decrease in price.  
     * Duration  
-    ![Duration of listings](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Duration%20of&20listings.png)
-    ![Duration and Price](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Duration%20and%20Price.png)
+    ![Duration of listings](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Duration%20of&20listings.png)  
+    ![Duration and Price](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Duration%20and%20Price.png)  
     We analyzed the relationship between duration and average price. This answer will help us to figure out the host behavior. For example, we will know whether the host is considered their Airbnb house as a commerical house to generate rent revenue or as a residential house. Based on our result, we know that most of the houses are under the normal range of 150-250. There are around 10 neighbourhoods that have a higher average durations with values greater than 250, which may indicates that the people in these neighbourhoods have a higher tendency to consider the house as a commercial house.  
 
 3) **Host Data Analysis**  
@@ -143,14 +143,14 @@ for index, row in df_review.iterrows():
     Super host policy is designed as an incentive program that is a win-win for both the host, Airbnb, and their customers. Super host have more listings than non-super host on average.  
     * Popular host verification types  
     phone, email, reviews, government_id and offline_government_id  
-    ![Host Verification](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Host%20Verification.png)
+    ![Host Verification](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Host%20Verification.png)  
 
 4) **User Review Analysis**  
     * Top Words  
     Top frequently occurred words were ‘great’, ‘stay’, ‘clean’, ‘location’, ‘nice’, ‘host’, ‘comfortable’, which shows the features of the listings customers care about most:  environment, location and cleanliness.  
     * Review Sentiment  
-    ![Review sentiment](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Review%20sentiment.png)
-    ![Ranking](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Ranking.png)
-    ![Sentiment ranking](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Sentiment%20ranking.png)
+    ![Review sentiment](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Review%20sentiment.png)  
+    ![Ranking](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Ranking.png)  
+    ![Sentiment ranking](https://github.com/ShixuanGuo/Airbnb-Data-Analysis/blob/master/img/Sentiment%20ranking.png)  
     There is a small correlation (around 0.193) between positive words in comments with review score values, but there should be other factors that attribute more than positive words. Also, according on the visualization we created, we know that counting purely positive words would not reflect the hotel’s review score values, because two graphs does not have a similar trend. We might need to analyze more factors to finalize our model to answer this question.  
 
