@@ -81,7 +81,7 @@ df_list.fillna(0,inplace=True)
 ```
 The data had null values. I dropped the rows and columns containing more than 50% missing values and filled other missing values with 0.
 
-4) Key features data cleaning
+4) Key features data cleaning  
 a.I converted price from string into float.
 ```python
 def getmoney(price):
